@@ -1,6 +1,7 @@
 <template>
     <div>
         <Main></Main>
+        <h2>Aiuto</h2>
     </div>
 </template>
 

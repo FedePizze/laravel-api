@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <h1>Elenco dei post</h1>
+      <h1>Elenco delle canzoni</h1>
 
       <div class="row">
         <div class="col-4" v-for="post in posts" :key="post.id">
@@ -12,7 +12,7 @@
 
               <p class="card-text">{{ post.content }}</p>
 
-              <a href="#" class="btn btn-primary">Vedi articolo completo</a>
+              <a href="#" class="btn btn-primary">Vedi dato completo</a>
             </div>
           </div>
         </div>
@@ -21,9 +21,9 @@
 
       <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li class="page-item" :class="(currentPage == 1)?'disabled':''" ><span class="page-link" @click="getPosts(currentPage - 1)">Precedente</span></li>
-            
-            <li class="page-item" :class="(currentPage == lastPage)?'disabled':''"><span class="page-link" @click="getPosts(currentPage + 1)">Successivo</span></li>
+            <li class="page-item" :class="(currentPage == 1)?'disabled':''" ><span class="page-link" @click="getPosts(currentPage - 1)">Indietro</span></li>
+
+            <li class="page-item" :class="(currentPage == lastPage)?'disabled':''"><span class="page-link" @click="getPosts(currentPage + 1)">Avanti</span></li>
         </ul>
     </nav>
 
