@@ -1,34 +1,34 @@
 <template>
-  <main>
-    <div class="container">
-      <h1>Elenco delle canzoni</h1>
+    <main>
+        <div class="container">
+            <h1>Elenco delle canzoni</h1>
 
-      <div class="row">
-        <div class="col-4" v-for="post in posts" :key="post.id">
-          <div class="card">
-            <div class="card-body">
+            <div class="row">
+                <div class="col-4" v-for="post in posts" :key="post.id">
+                    <div class="card">
+                        <div class="card-body">
 
-              <h5 class="card-title">{{ post.title }}</h5>
+                        <h5 class="card-title">{{post.title}}</h5>
 
-              <p class="card-text">{{ post.content }}</p>
+                        <p class="card-text">{{post.description}}</p>
 
-              <a href="#" class="btn btn-primary">Vedi dato completo</a>
+                        <a href="#" class="btn btn-primary">Vedi dato completo</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item" :class="(currentPage == 1)?'disabled':''" ><span class="page-link" @click="Post(currentPage - 1)">Indietro</span></li>
+
+                    <li class="page-item" :class="(currentPage == lastPage)?'disabled':''"><span class="page-link" @click="Post(currentPage + 1)">Avanti</span></li>
+                </ul>
+            </nav>
+
         </div>
-      </div>
-
-
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item" :class="(currentPage == 1)?'disabled':''" ><span class="page-link" @click="getPosts(currentPage - 1)">Indietro</span></li>
-
-            <li class="page-item" :class="(currentPage == lastPage)?'disabled':''"><span class="page-link" @click="getPosts(currentPage + 1)">Avanti</span></li>
-        </ul>
-    </nav>
-
-    </div>
-  </main>
+    </main>
 </template>
 
 
@@ -50,7 +50,7 @@ export default {
                 'params': {'page': valore}
             })
 
-            .the((response) => {
+            .then((response) => {
 
                 this.currentPage = response.data.results.current_page;
                 this.posts = response.data.results.data;
@@ -61,7 +61,9 @@ export default {
 
 
     created() {
-        this.getPosts();
+        this.Post();
+
+        axios.get('/api/posts').then((response) => {console.log(response)});
     }
 }
 </script>

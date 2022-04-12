@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <h1>/login</h1>
-    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam maxime ipsa repellat exercitationem? Dicta ducimus architecto aliquam quas quia veritatis molestias alias molestiae, atque, mollitia ea unde corporis magni qui!</span>
-
+    
     <div id="root">
 
     </div>
